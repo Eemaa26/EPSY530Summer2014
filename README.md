@@ -54,7 +54,7 @@ Jun-23 | Inference about Means |  | 18
        | Paired Samples and Block |  | 21
 Jun-25 | |  | 
 Jun-30 | Review - Distribute take-home question.
-Jun-32 | Final Exam
+Jul-2 | Final Exam
 
 
 

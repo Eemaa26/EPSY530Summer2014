@@ -3,7 +3,7 @@
 **Instructor:** Jason Bryer [jason@bryer.org](mailto:jason@bryer.org)  
 **Website:** [epsy530.bryer.org](http://epsy530.bryer.org)  
 **Class Time:** Monday & Wednesday 4:15pm to 7:05pm  
-**Class Location:** 
+**Class Location:** SL G02 (ground floor of the University's Science Library)
 **Office Hours:** By appointment  
 
 ### Course Description
@@ -12,8 +12,8 @@ Descriptive statistics including measures of central tendency and variability, c
 
 ### Grading
 
-* Final exam (50%) - In class multipel choice and take home short answers.
-* Homework (20%)
+* Final exam (40%) - In class multipel choice and take home short answers.
+* Homework (30%)
 * Project (30%) - The project can be completed individually or in pairs. If you choose to work with a partner you are required to provide a statment that indicates you participated equally and that you understand one grade will be given for the project for both participants. The project will involve analyzing and presenting analysis of a dataset of your choosing. A list of datasets will be provided but other datasets may be used if approved by the instructor.
 
 #### Grade Distribution
@@ -31,6 +31,30 @@ E = <65
 ### Schedule
 
 *NOTE: Tentative. Subject to change*
+
+Date   | Topic | Resources | Chapter
+-------|:------|:----------|:--------:
+May-29 | Introduction / Variables |  | 1
+       | Displaying and Describing Categorical Data |  | 2
+       | Displaying Quantitative Data |  | 3
+Jun-2  | Distributions |  | 4
+       | Standard Deviation and Normality |  | 5
+Jun-4  | Scatterplots, Association, Correlation |  | 6
+       | Linear Regersssion |  | 7
+Jun-9  | Understanding Randomness |  | 9
+       | Sample Surveys |  | 10
+Jun-11 | Experiments and Observational Studies |  | 11
+       | From Randomness to Probability |  | 12
+Jun-16 | Probability Rules |  | 13
+       | Random Variables and Probability Models |  | 14
+Jun-18 | Sampling Distribution Models |  | 15
+       | Confidence Intervals for Proportions |  | 16
+Jun-23 | Inference about Means |  | 18
+       | Comparing Groups |  | 20
+       | Paired Samples and Block |  | 21
+Jun-25 | |  | 
+Jun-30 | Review - Distribute take-home question.
+Jun-32 | Final Exam
 
 
 

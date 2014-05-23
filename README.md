@@ -40,7 +40,7 @@ May-29 | Introduction / Variables |  | 1
 Jun-2  | Distributions |  | 4
        | Standard Deviation and Normality |  | 5
 Jun-4  | Scatterplots, Association, Correlation |  | 6
-       | Linear Regersssion |  | 7
+       | Linear Regression |  | 7
 Jun-9  | Understanding Randomness |  | 9
        | Sample Surveys |  | 10
 Jun-11 | Experiments and Observational Studies |  | 11

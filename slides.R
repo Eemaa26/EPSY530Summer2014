@@ -1,5 +1,5 @@
 # http://slidify.org/
-setwd("~/Dropbox/School/Teaching/EPSY530 2013 Fall")
+setwd("~/Dropbox/School/Teaching/EPSY530 2014 Summer")
 source('slidify.R')
 
 slideOptions <- list(framework='deck.js', theme='swiss', transition='horizontal-slide')

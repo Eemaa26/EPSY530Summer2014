@@ -34,24 +34,24 @@ E = <65
 
 Date   | Topic | Resources | Chapter
 -------|:------|:----------|:--------:
-May-29 | Introduction / Variables |  | 1
-       | Displaying and Describing Categorical Data |  | 2
-       | Displaying Quantitative Data |  | 3
-Jun-2  | Distributions |  | 4
-       | Standard Deviation and Normality |  | 5
-Jun-4  | Scatterplots, Association, Correlation |  | 6
-       | Linear Regression |  | 7
-Jun-9  | Understanding Randomness |  | 9
-       | Sample Surveys |  | 10
-Jun-11 | Experiments and Observational Studies |  | 11
-       | From Randomness to Probability |  | 12
-Jun-16 | Probability Rules |  | 13
-       | Random Variables and Probability Models |  | 14
-Jun-18 | Sampling Distribution Models |  | 15
-       | Confidence Intervals for Proportions |  | 16
-Jun-23 | Inference about Means |  | 18
-       | Comparing Groups |  | 20
-       | Paired Samples and Block |  | 21
+May-29 | Introduction / Variables | [Slides](Slides/Class01.html) | 1
+       | Displaying and Describing Categorical Data | [Slides](Slides/Class2.html) | 2
+       | Displaying Quantitative Data | [Slides](Slides/Class03.html) | 3
+Jun-2  | Distributions | [Slides](Slides/Class04.html) | 4
+       | Standard Deviation and Normality | [Slides](Slides/Class05.html) | 5
+Jun-4  | Scatterplots, Association, Correlation | [Slides](Slides/Class06.html) | 6
+       | Linear Regression | [Slides 7](Slides/Class07.html) [Slides 8](Slides/Class07.html) | 7 & 8
+Jun-9  | Understanding Randomness | [Slides](Slides/Class09.html) | 9
+       | Sample Surveys | [Slides](Slides/Class10.html) | 10
+Jun-11 | Experiments and Observational Studies | [Slides](Slides/Class11.html) | 11
+       | From Randomness to Probability | [Slides](Slides/Class12.html) | 12
+Jun-16 | Probability Rules | [Slides](Slides/Class13.html) | 13
+       | Random Variables and Probability Models | [Slides](Slides/Class14.html) | 14
+Jun-18 | Sampling Distribution Models | [Slides](Slides/Class15.html) | 15
+       | Confidence Intervals for Proportions | [Slides](Slides/Class16.html) | 16
+Jun-23 | Inference about Means | [Slides](Slides/Class17.html) | 18
+       | Comparing Groups | [Slides](Slides/Class18.html) | 20
+       | Paired Samples and Block | [Slides](Slides/Class19.html) | 21
 Jun-25 | |  | 
 Jun-30 | Review - Distribute take-home question.
 Jul-2 | Final Exam
@@ -113,7 +113,7 @@ An important part of learning statistics is to work with a real dataset. For thi
 
 ### Software
 
-Although this course will emphasize statistical concepts, we will make occosional use of [R](http://r-project.org), an open source statistics program and language. You are free to [install R](http://cran.r-project.org/) and [RStudio](http://rstudio.com) on your own computers, but you can run R within a [Google Chrome](http://google.com/chrome) browser at [rstudio.bryer.org](http://rstudio.bryer.org). Your username and password will be provided within the first week of the semester.
+Although this course will emphasize statistical concepts, we will make occosional use of [R](http://r-project.org), an open source statistics program and language. Please [install R](http://cran.r-project.org/) and [RStudio](http://rstudio.com) on your own computers as soon as possible. We will spend some time each class covering what you need to know for the project.
 
 **WARNING** KEEP A LOCAL COPY OF ALL YOUR R SCRIPTS AND DATA. I cannot guarantee that the server will always retain a copy of your work. 
 

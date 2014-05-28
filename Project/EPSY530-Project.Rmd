@@ -1,0 +1,94 @@
+EPSY 530 Research Project - Prograamm of International Student Assessment
+========================================================
+
+**NOTE:** The data used for this project has been simplified so inferences made with these data may not reflect what the full dataset may suggest. For example, any student records with any missing data were removed. Also, PISA uses a complex survey design where survey weights and multiple plausible values are provided for the outcome scores (i.e. math, reading, and science). The scores provided are simple means of the five possible values for simplicity.
+
+
+### Load Data
+
+```{r}
+```
+
+
+### Describe Variables
+
+```{r}
+```
+
+* `ST04Q01` - Sex. Qualitative. Values are Male or Female.
+* `ST06Q01` - Age. Quantitative.
+* `ST10Q01` - Mother's education level.
+
+### Descriptive Statistics for Qualitiatve Variables
+
+```{r}
+```
+
+
+### Descriptive Statistics for Quantiative Variables
+
+For the quantitative variables, calculate the mean, median, standard deviation, interquartile range.
+
+```{r}
+```
+
+
+### Visualize Qualitative Variables
+
+For the qualitiative variables, create a barplot.
+
+```{r}
+```
+
+
+### Visualize Quantitative Variables
+
+For the quantitative variables, create a boxplot and histogram.
+
+```{r}
+```
+
+
+### Distributions for the response variables.
+
+```{r}
+```
+
+For the response varaibles (i.e. math, reading, and science), describe the distributions by gender.
+```{r}
+```
+
+
+### Correlation
+
+What is the correlation between reading time and reading score?
+
+```{r}
+```
+
+
+### Linear Regression
+
+Scatter plot.
+
+```{r}
+```
+
+Predict reading score from reading time.
+
+```{r}
+```
+
+Residual plot.
+```{r}
+```
+
+
+### Comparing groups
+
+The `PUBPRIV` variable indicates whether a student attended a public or private school.
+
+```{r}
+```
+
+

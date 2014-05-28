@@ -114,7 +114,7 @@ An important part of learning statistics is to work with a real dataset. For thi
 
 ### Software
 
-Although this course will emphasize statistical concepts, we will make occosional use of [R](http://r-project.org), an open source statistics program and language. Please [install R](http://cran.r-project.org/) and [RStudio](http://rstudio.com) on your own computers as soon as possible. We will spend some time each class covering what you need to know for the project.
+Although this course will emphasize statistical concepts, we will make occosional use of [R](http://r-project.org), an open source statistics program and language. Please [install R](http://cran.r-project.org/) and [RStudio](http://rstudio.com) on your own computers as soon as possible. We will spend some time each class covering what you need to know for the project. [Installation instructions](R.md) and [introductory slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/IntoToR.html) are available.
 
 **WARNING** KEEP A LOCAL COPY OF ALL YOUR R SCRIPTS AND DATA. I cannot guarantee that the server will always retain a copy of your work. 
 

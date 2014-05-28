@@ -1,6 +1,7 @@
 ## EPSY 530 - Statistics I - Summer 2014
 
 **Instructor:** Jason Bryer [jason@bryer.org](mailto:jason@bryer.org)  
+**TA:** Justin Chase [jpchase@albany.edu](mailto:jpchase@albany.edu)  
 **Website:** [epsy530.bryer.org](http://epsy530.bryer.org)  
 **Class Time:** Monday & Wednesday 4:15pm to 7:05pm  
 **Class Location:** SL G02 (ground floor of the University's Science Library)
@@ -34,24 +35,24 @@ E = <65
 
 Date   | Topic | Resources | Chapter
 -------|:------|:----------|:--------:
-May-29 | Introduction / Variables | [Slides](Slides/Class01.html) | 1
-       | Displaying and Describing Categorical Data | [Slides](Slides/Class2.html) | 2
-       | Displaying Quantitative Data | [Slides](Slides/Class03.html) | 3
-Jun-2  | Distributions | [Slides](Slides/Class04.html) | 4
-       | Standard Deviation and Normality | [Slides](Slides/Class05.html) | 5
-Jun-4  | Scatterplots, Association, Correlation | [Slides](Slides/Class06.html) | 6
-       | Linear Regression | [Slides 7](Slides/Class07.html) [Slides 8](Slides/Class07.html) | 7 & 8
-Jun-9  | Understanding Randomness | [Slides](Slides/Class09.html) | 9
-       | Sample Surveys | [Slides](Slides/Class10.html) | 10
-Jun-11 | Experiments and Observational Studies | [Slides](Slides/Class11.html) | 11
-       | From Randomness to Probability | [Slides](Slides/Class12.html) | 12
-Jun-16 | Probability Rules | [Slides](Slides/Class13.html) | 13
-       | Random Variables and Probability Models | [Slides](Slides/Class14.html) | 14
-Jun-18 | Sampling Distribution Models | [Slides](Slides/Class15.html) | 15
-       | Confidence Intervals for Proportions | [Slides](Slides/Class16.html) | 16
-Jun-23 | Inference about Means | [Slides](Slides/Class17.html) | 18
-       | Comparing Groups | [Slides](Slides/Class18.html) | 20
-       | Paired Samples and Block | [Slides](Slides/Class19.html) | 21
+May-29 | Introduction / Variables | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class01.html) | 1
+       | Displaying and Describing Categorical Data | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class2.html) | 2
+       | Displaying Quantitative Data | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class03.html) | 3
+Jun-2  | Distributions | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class04.html) | 4
+       | Standard Deviation and Normality | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class05.html) | 5
+Jun-4  | Scatterplots, Association, Correlation | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class06.html) | 6
+       | Linear Regression | [Slides 7](Slides/Class07.html) [Slides 8](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class07.html) | 7 & 8
+Jun-9  | Understanding Randomness | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class09.html) | 9
+       | Sample Surveys | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class10.html) | 10
+Jun-11 | Experiments and Observational Studies | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class11.html) | 11
+       | From Randomness to Probability | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class12.html) | 12
+Jun-16 | Probability Rules | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class13.html) | 13
+       | Random Variables and Probability Models | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class14.html) | 14
+Jun-18 | Sampling Distribution Models | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class15.html) | 15
+       | Confidence Intervals for Proportions | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class16.html) | 16
+Jun-23 | Inference about Means | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class17.html) | 18
+       | Comparing Groups | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class18.html) | 20
+       | Paired Samples and Block | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class19.html) | 21
 Jun-25 | |  | 
 Jun-30 | Review - Distribute take-home question.
 Jul-2 | Final Exam

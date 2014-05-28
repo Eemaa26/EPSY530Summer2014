@@ -41,30 +41,10 @@
     <!-- SLIDES -->
       <slide class="" id="">
   <hgroup>
-    
+    <h2>Titanic Data</h2>
   </hgroup>
   <article>
-    <pre><code>## Loading required package: gdata
-## gdata: read.xls support for &#39;XLS&#39; (Excel 97-2004) files ENABLED.
-## 
-## gdata: read.xls support for &#39;XLSX&#39; (Excel 2007+) files ENABLED.
-## 
-## Attaching package: &#39;gdata&#39;
-## 
-## The following object is masked from &#39;package:utils&#39;:
-## 
-##     object.size
-## 
-## The following object is masked from &#39;package:stats&#39;:
-## 
-##     nobs
-## 
-## Loading required package: reshape
-</code></pre>
-
-<h2>Titanic Data</h2>
-
-<pre><code class="r">load(&quot;../Data/titanic.Rda&quot;)
+    <pre><code class="r">load(&quot;../Data/titanic.Rda&quot;)
 head(titanic, n = 3)
 </code></pre>
 
@@ -252,15 +232,7 @@ head(titanic, n = 3)
   </hgroup>
   <article>
     <pre><code class="r">require(likert)
-</code></pre>
-
-<pre><code>Loading required package: likert
-Loading required package: gridExtra
-Loading required package: grid
-Loading required package: xtable
-</code></pre>
-
-<pre><code class="r">l &lt;- likert(mass[, 2:ncol(mass)])
+l &lt;- likert(mass[, 2:ncol(mass)])
 plot(l, wrap = 30)
 </code></pre>
 
@@ -400,38 +372,7 @@ plot(l, wrap = 30)
 
     </div>    
     <div class='right' style='float:right;width:48%'>
-     <pre><code>Loading required package: mosaic
-Loading required package: lattice
-Loading required package: car
-
-Attaching package: &#39;car&#39;
-
-The following object is masked from &#39;package:likert&#39;:
-
-    recode
-
-
-Attaching package: &#39;mosaic&#39;
-
-The following object is masked from &#39;package:car&#39;:
-
-    logit
-
-The following object is masked from &#39;package:gdata&#39;:
-
-    resample
-
-The following objects are masked from &#39;package:stats&#39;:
-
-    binom.test, cor, cov, D, fivenum, IQR, median, prop.test, sd,
-    t.test, var
-
-The following objects are masked from &#39;package:base&#39;:
-
-    max, mean, min, print, prod, range, sample, sum
-</code></pre>
-
-<p><img src="Figures/Class02-simpsonparadox.png" alt="plot of chunk simpsonparadox"> </p>
+     <p><img src="Figures/Class02-simpsonparadox.png" alt="plot of chunk simpsonparadox"> </p>
 
     </div>
   </article>

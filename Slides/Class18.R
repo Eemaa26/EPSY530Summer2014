@@ -2,25 +2,44 @@
 
 require(ggplot2)
 require(gdata)
-require(psych)
 options(digits=4, width=95)
 opts_chunk$set(fig.path='Figures/Class18-')
 opts_chunk$set(comment=NA)
-load('../Project/Data/pisa.USA.Rda')
 
 
 
-describeBy(pisa.USA$reading, 
-group=pisa.USA$PUBPRIV, mat=TRUE, 
-skew=FALSE)[,2:6]
+
+x <- seq(-4, 4, length=100)
+hx <- dnorm(x)
+
+degf <- c(1, 3, 8, 30)
+colors <- c("red", "blue", "darkgreen", "gold", "black")
+labels <- c("df=1", "df=3", "df=8", "df=30", "normal")
+
+plot(x, hx, type="l", lty=2, xlab="x value",
+  ylab="Density", main="Comparison of t Distributions")
+
+for (i in 1:4){
+  lines(x, dt(x,degf[i]), lwd=2, col=colors[i])
+}
+
+legend("topright", inset=.05, title="Distributions",
+  labels, lwd=2, lty=c(1, 1, 1, 1, 2), col=colors)
 
 
 
-ggplot(pisa.USA, aes(x=PUBPRIV, 
-y=reading)) + geom_boxplot()
+qt(.975, 149)
 
 
 
-t.test(reading ~ PUBPRIV, data=pisa.USA)
+qt(.95, 24)
+
+
+
+1 - pt(2.825, 149)
+
+
+
+pt(-1.67, 24)
 
 

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Standard Deviation and Normality</title>
+  <title>Scatterplots, Association, Correlation</title>
   <meta charset="utf-8">
-  <meta name="description" content="Standard Deviation and Normality">
+  <meta name="description" content="Scatterplots, Association, Correlation">
   <meta name="author" content="Jason Bryer">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,7 +32,7 @@
     <!-- Should I move this to a Local Layout File? -->
     <slide class="title-slide segue nobackground">
       <hgroup class="auto-fadein">
-        <h1>Standard Deviation and Normality</h1>
+        <h1>Scatterplots, Association, Correlation</h1>
         <h2>Chapter 6</h2>
         <p>Jason Bryer<br/>epsy530.bryer.org</p>
       </hgroup>
@@ -41,22 +41,23 @@
     <!-- SLIDES -->
       <slide class="" id="slide-1" style="background:;">
   <hgroup>
-    
+    <h2>Scatterplots</h2>
   </hgroup>
   <article>
-    <pre><code>## Error: object &#39;pisana&#39; not found
-</code></pre>
-
-<pre><code>## Error: object &#39;pisausa&#39; not found
-</code></pre>
-
-<h2>Comparing Students</h2>
-
-<ul>
-<li><p>Student A takes the SAT and scores 600 on the math component, 100 points higher than the average student.</p></li>
-<li><p>Student B takes the ACT and scores 27 on the math component, 9 points higher than the average student.</p></li>
-<li><p>Which student performed better?</p></li>
+    <ul>
+<li>Scatterplots exhibit the relationship between two variables.</li>
+<li>Used for detecting patterns, trends, relationships, and extraordinary values.</li>
 </ul>
+
+<pre><code class="r">ggplot(temp, aes(x=Year, y=means)) + geom_point()
+</code></pre>
+
+<p><img src="Figures/Class06-unnamed-chunk-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
+
+<p>-- &amp;twocol</p>
+
+<h2>Scatterplots</h2>
+
 
   </article>
   <!-- Presenter Notes -->
@@ -64,38 +65,16 @@
 
       <slide class="" id="slide-2" style="background:;">
   <hgroup>
-    <h2>How many standard deviations?</h2>
+    <h2>Direction of Association</h2>
   </hgroup>
   <article>
-    <table><thead>
-<tr>
-<th></th>
-<th>SAT</th>
-<th>ACT</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Mean</td>
-<td>500</td>
-<td>18</td>
-</tr>
-<tr>
-<td>SD</td>
-<td>100</td>
-<td>6</td>
-</tr>
-<tr>
-<td>Student</td>
-<td>600</td>
-<td>27</td>
-</tr>
-</tbody></table>
-
-<h3>The standard deviation helps compare two different metrics.</h3>
-
-<ul>
-<li>SAT: 600 - 500 = 100 (or 1 standard deviation)</li>
-<li>ACT: 27 - 18 = 9 (or 1.5 standard devations)</li>
+    <ul>
+<li>Negative Direction: As one goes up, the other goes down.<br>
+<img src='Figures/scatter-negative.png' width=100></li>
+<li>Positive Direction: As one goes up, the other goes up also.<br>
+<img src='Figures/scatter-positive.png' width=100></li>
+<li>No Direction<br>
+<img src='Figures/scatter-none.png' width=100></li>
 </ul>
 
   </article>
@@ -104,17 +83,60 @@
 
       <slide class="" id="slide-3" style="background:;">
   <hgroup>
-    <h2>The z-Score (or standard score)</h2>
+    <h2>Form</h2>
   </hgroup>
   <article>
-    <p>\[ z=\frac { y-\overline { y }  }{ s } \]</p>
+    <ul>
+<li>Linear:  The points cluster near a line.<br>
+<img src='Figures/scatter-linear.png' width=100></li>
+<li>Gently curves in a direction. May be able to straighten with a transformation.<br>
+<img src='Figures/scatter-curved1.png' width=100></li>
+<li>Curves up and down.  Difficult to straighten<br>
+<img src='Figures/scatter-curved2.png' width=100></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Strength of Relationship</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Strong linear relationship<br>
+<img src='Figures/scatter-strong.png' width=100></li>
+<li>Moderate linear relationship<br>
+<img src='Figures/scatter-moderate.png' width=100></li>
+<li>No linear relationship<br>
+<img src='Figures/scatter-none.png' width=100></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Variables</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li><b>Response Variable</b> (y): The variable of interest.  It is what we want to predict.</li>
+<li><b>Explanatory or Predictor Variable</b> (x): The variable that we use to provide information or a prediction of the response variable.</li>
+<li>Choosing the response variable and the explanatory variable depends on how we think about the problem.<br></li>
+</ul>
+
+<p>For example:</p>
 
 <ul>
-<li>The z-score measures the distance of the value from the mean in standard deviations.</li>
-<li>A positive z-score indicates the value is above the mean.</li>
-<li>A negative z-score indicates the value is below the mean.</li>
-<li>A small z-score indicates the value is close to the mean when compared to the rest of the data values.</li>
-<li>A large z-score indicates the value is far from the mean when compared to the rest of the data values.</li>
+<li>Do baseball teams that score more runs also sell more tickets?<br>
+Tickets = Response (y), Runs = Explanatory (x)</li>
+<li>Do students with higher SAT scores get better grades?<br>
+Grades = Response (y), SAT score = Explanatory (x)</li>
+<li>Can we estimate a person’s BMI by measuring their wrist size?<br>
+BMI = Response (y), Wrist Size = Explanatory (x)</li>
 </ul>
 
   </article>
@@ -123,125 +145,58 @@
 
       <slide class="" id="">
   <hgroup>
-    <h2>z-Scores for our Students</h2>
+    <h2>Correlation</h2>
   </hgroup>
   <article>
-    <table><thead>
-<tr>
-<th></th>
-<th>SAT</th>
-<th>ACT</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Mean</td>
-<td>500</td>
-<td>18</td>
-</tr>
-<tr>
-<td>SD</td>
-<td>100</td>
-<td>6</td>
-</tr>
-<tr>
-<td>Student</td>
-<td>600</td>
-<td>27</td>
-</tr>
-</tbody></table>
-
-  
+      
     <div class='left' style='float:left;width:48%'>
-     <h3>SAT</h3>
-
-<p>\[ z=\frac { 600 - 500  }{ 100 } = 1 \]</p>
-
-
-    </div>    
-    <div class='right' style='float:right;width:48%'>
-     <h3>ACT</h3>
-
-<p>\[ z=\frac { 27 - 18 }{ 6 } = 1.5 \]</p>
-
-    </div>
-  </article>
-</slide>
-      <slide class="" id="">
-  <hgroup>
-    <h2>Shifting</h2>
-  </hgroup>
-  <article>
-    <p>If the same number is subtracted or added to all data values, then:</p>
-
-<ul>
-<li>The measures of the spread - standard deviation, range, and IQR - are all unaffected.</li>
-<li>The measures of position - mean, median, and mode - are all changed by that number.</li>
+     <ul>
+<li>How strong is the relationship between SAT scores and full-time retention?</li>
+<li>For the green dots: z-scores have the same sign, so multiplying the z-scores produces a positive value.<br></li>
+<li>For the red dots:  z-scores have opposite signs, so multiplying the z-scores produces a negative value.</li>
+<li>Define the correlation coefficient by an almost average product of the z-scores:</li>
 </ul>
 
-  
-    <div class='left' style='float:left;width:48%'>
-     <pre><code class="r">ggplot(pisausa, aes(x=Math)) + 
-geom_histogram(binwidth=20)
-</code></pre>
+<p>\[ r=\frac { \sum { { z }_{ x }{ z }_{ y } }  }{ n-1 } \]</p>
 
-<pre><code>Error: object &#39;pisausa&#39; not found
+<pre><code class="r">meanSAT = mean(ipedsSAT$SATTotal)
+meanRetention = mean(ipedsSAT$Retention)
 </code></pre>
 
 
     </div>    
     <div class='right' style='float:right;width:48%'>
-     <pre><code class="r">ggplot(pisausa, aes(x=Math - 500)) + 
-geom_histogram(binwidth=20)
+     <pre><code class="r">ggplot(ipedsSAT, aes(x=SATTotal, 
+    y=Retention, color=Association)) + 
+    geom_vline(xintercept=meanSAT) +
+    geom_hline(yintercept=meanRetention) +
+    geom_point()
 </code></pre>
 
-<pre><code>Error: object &#39;pisausa&#39; not found
-</code></pre>
-
-    </div>
-  </article>
-</slide>
-      <slide class="" id="">
-  <hgroup>
-    <h2>Scaling</h2>
-  </hgroup>
-  <article>
-    <p>If we multiply all data values by the same number, what happens to the position and spread?</p>
-
-<p>When we multiply (or divide) all the data values by a  constant, all measures of position and all measures of  spread are multiplied (or divided) by that same constant.</p>
-
-  
-    <div class='left' style='float:left;width:48%'>
-     <pre><code class="r">ggplot(speeds, aes(x=variable, y=value)) + 
-geom_boxplot()
-</code></pre>
-
-<p><img src="Figures/Class06-unnamed-chunk-4.png" alt="plot of chunk unnamed-chunk-4"> </p>
-
-
-    </div>    
-    <div class='right' style='float:right;width:48%'>
-     <pre><code class="r">ggplot(speeds, aes(x=value)) + 
-geom_histogram() + 
-facet_wrap(~ variable, ncol=1)
-</code></pre>
-
-<p><img src="Figures/Class06-unnamed-chunk-5.png" alt="plot of chunk unnamed-chunk-5"> </p>
+<p><img src="Figures/Class06-unnamed-chunk-6.png" alt="plot of chunk unnamed-chunk-6"> </p>
 
     </div>
   </article>
 </slide>
       <slide class="" id="slide-7" style="background:;">
   <hgroup>
-    <h2>Models</h2>
+    <h2>Assumptions and Conditions for Correlation</h2>
   </hgroup>
   <article>
-    <p><q>All models are wrong, but some are useful.</q> - George Box</p>
-
-<ul>
-<li>−1 &lt; z &lt; 1:  Not uncommon</li>
-<li>z = ±3:  Rare</li>
-<li>z = 6:  Shouts out for attention!</li>
+    <ul>
+<li>To use r, there must be a true underlying <i>linear relationship</i> between the two variables.</li>
+<li>The variables must be <i>quantitative</i>.</li>
+<li>The pattern for the points of the scatterplot must be <i>reasonably straight</i>.</li>
+<li>Outliers can strongly affect the correlation.  Look at the scatterplot to make sure that there are <i>no strong outliers</i>. </li>
 </ul>
+
+<h2>Calculating correlation in R</h2>
+
+<pre><code class="r">cor(ipedsSAT$SATTotal, ipedsSAT$Retention)
+</code></pre>
+
+<pre><code>[1] 0.7909
+</code></pre>
 
   </article>
   <!-- Presenter Notes -->
@@ -249,27 +204,20 @@ facet_wrap(~ variable, ncol=1)
 
       <slide class="" id="slide-8" style="background:;">
   <hgroup>
-    <h2>The Normal Model</h2>
+    <h2>Properites of Correlation</h2>
   </hgroup>
   <article>
     <ul>
-<li>Bell Shaped:  unimodal, symmetric</li>
-<li>A Normal model for every mean and standard deviation.
-
-<ul>
-<li>\(\mu\) (read “mew”) represents the population mean.</li>
-<li>\(\sigma\)  (read “sigma”) represents the population standard deviation.</li>
-<li>\(N(\mu, \sigma)\) represents a Normal model with mean m and standard deviation s. </li>
-</ul></li>
-</ul>
-
-<p>\[f(x)\quad =\quad \frac { 1 }{ \sigma \sqrt { 2\pi  }  } { e }^{ -\frac { { \left( x-\mu  \right)  }^{ 2 } }{ { 2\sigma  }^{ 2 } }  }\]</p>
-
-<ul>
-<li>Parameters:  Numbers that help specify the model (i.e. \(\mu\), \(\sigma\))</li>
-<li>Statistics:  Numbers that summarize the data (e.g. \(\overline{y}\), \(s\), median, mode)</li>
-<li>\(N(0, 1)\) is called the standard Normal model, or the standard Normal distribution.</li>
-<li>The Normal model should only be used if the data is approximately symmetric and unimodal.</li>
+<li>r &gt; 0 → positive association</li>
+<li>r &lt; 0 → negative association</li>
+<li>−1 &lt; r &lt; 1, with r = − 1 only if the points all lie exactly on a negatively sloped line and r = 1 only if the points all lie exactly on a positively sloped line.</li>
+<li>Interchanging x and y does not change the correlation.</li>
+<li>r has no units.<br></li>
+<li>Changing the units of x or y does not affect r.</li>
+<li>Measuring in dollars, cents, or Euros will all produce the same correlation.</li>
+<li>Correlation measures the strength of the linear association between the two variables.</li>
+<li>Correlation is sensitive to outliers.  An extreme outlier can cause a dramatic change in r.</li>
+<li>The adjectives weak, moderate, and strong can describe correlation, but there are no agreed upon boundaries.</li>
 </ul>
 
   </article>
@@ -278,18 +226,14 @@ facet_wrap(~ variable, ncol=1)
 
       <slide class="" id="slide-9" style="background:;">
   <hgroup>
-    <h2>The 68-95-99.7 Rule</h2>
+    <h2>Correlation DOES NOT mean causation</h2>
   </hgroup>
   <article>
     <ul>
-<li>68% of the values fall within 1 standard deviation of the mean.</li>
-<li>95% of the values fall within 2 standard deviations of the mean.</li>
-<li>99.7% of the values fall within 3 standard deviations of the mean.</li>
+<li>Causation is a possibility, but more must be done to prove causation.</li>
+<li>The causation could be in reverse (y causes x)</li>
+<li>A lurking variable may cause both.</li>
 </ul>
-
-<p><img src='Figures/NormalCurve.png' alt='Normal Curve' width='90%'></p>
-
-<p>Finding percentiles: <a href='http://shiny.albany.edu/stat/stdnormal/' target='_blank'><a href="http://shiny.albany.edu/stat/stdnormal/">http://shiny.albany.edu/stat/stdnormal/</a></a></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -297,106 +241,16 @@ facet_wrap(~ variable, ncol=1)
 
       <slide class="" id="slide-10" style="background:;">
   <hgroup>
-    <h2>Checking Normality</h2>
-  </hgroup>
-  <article>
-    <p>At a minimum, plot a histogram.</p>
-
-<pre><code class="r">ggplot(pisausa, aes(x=Math)) + geom_histogram()
-</code></pre>
-
-<pre><code>Error: object &#39;pisausa&#39; not found
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-      <slide class="" id="">
-  <hgroup>
-    <h2>Normal Probability Plots: PISA Math</h2>
-  </hgroup>
-  <article>
-      
-    <div class='left' style='float:left;width:48%'>
-     <ul>
-<li>Plots each value against the z-score that would be expected had the distribution been perfectly normal.</li>
-<li>If the plot shows a line or is nearly straight, then the Normal model works.</li>
-<li>If the plot strays from being a line, then the Normal model is not a good model.</li>
-</ul>
-
-
-    </div>    
-    <div class='right' style='float:right;width:48%'>
-     <pre><code class="r">qqnorm(pisausa$Math)
-</code></pre>
-
-<pre><code>Error: object &#39;pisausa&#39; not found
-</code></pre>
-
-    </div>
-  </article>
-</slide>
-      <slide class="" id="">
-  <hgroup>
-    <h2>Histograms: GDP</h2>
-  </hgroup>
-  <article>
-      
-    <div class='left' style='float:left;width:48%'>
-     <pre><code class="r">hist(worldData3$GDP)
-</code></pre>
-
-<p><img src="Figures/Class06-unnamed-chunk-9.png" alt="plot of chunk unnamed-chunk-9"> </p>
-
-
-    </div>    
-    <div class='right' style='float:right;width:48%'>
-     <pre><code class="r">hist(worldData3$GDP.log)
-</code></pre>
-
-<p><img src="Figures/Class06-unnamed-chunk-10.png" alt="plot of chunk unnamed-chunk-10"> </p>
-
-    </div>
-  </article>
-</slide>
-      <slide class="" id="">
-  <hgroup>
-    <h2>Normal Probability Plots: GDP</h2>
-  </hgroup>
-  <article>
-      
-    <div class='left' style='float:left;width:48%'>
-     <pre><code class="r">qqnorm(worldData3$GDP)
-</code></pre>
-
-<p><img src="Figures/Class06-unnamed-chunk-11.png" alt="plot of chunk unnamed-chunk-11"> </p>
-
-
-    </div>    
-    <div class='right' style='float:right;width:48%'>
-     <pre><code class="r">qqnorm(worldData3$GDP.log)
-</code></pre>
-
-<p><img src="Figures/Class06-unnamed-chunk-12.png" alt="plot of chunk unnamed-chunk-12"> </p>
-
-    </div>
-  </article>
-</slide>
-      <slide class="" id="slide-14" style="background:;">
-  <hgroup>
-    <h2>What can go wrong?</h2>
+    <h2>Guidelines for Re-Expressions</h2>
   </hgroup>
   <article>
     <ul>
-<li>Don’t use the Normal model when the distribution is not unimodal and symmetric.<br></li>
-<li>Always look at the picture first.</li>
-<li>Don’t use the mean and standard deviation when outliers are present.</li>
-<li>Check by making a picture.</li>
-<li>Don’t round your results in the middle of the calculation.</li>
-<li>Always wait until the end to round.</li>
-<li>Don’t worry about minor differences in results.</li>
-<li>Different rounding can produce slightly different results.</li>
+<li>Scatterplot bends downwards → \(y^{2}\)</li>
+<li>Scatterplot is linear → No change</li>
+<li>For data that is a count → \(y^{\frac{1}{y}}\)</li>
+<li>For data that is always positive → \(log(y)\)</li>
+<li>If nothing else seems to work try → \(y^{-\frac{1}{2}}\)</li>
+<li>For ratios such as miles per gallon → \(\frac{1}{y}\)</li>
 </ul>
 
   </article>

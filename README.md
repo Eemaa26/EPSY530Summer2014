@@ -4,7 +4,7 @@
 **TA:** Justin Chase [jpchase@albany.edu](mailto:jpchase@albany.edu)  
 **Website:** [epsy530.bryer.org](http://epsy530.bryer.org)  
 **Class Time:** Monday & Wednesday 4:15pm to 7:05pm  
-**Class Location:** SL G02 (ground floor of the University's Science Library)
+**Class Location:** SL G02 (ground floor of the University's Science Library)  
 **Office Hours:** By appointment  
 
 ### Course Description
@@ -35,24 +35,24 @@ E = <65
 
 Date   | Topic | Resources | Chapter
 -------|:------|:----------|:--------:
-May-29 | Introduction / Variables | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class01.html) | 1
-       | Displaying and Describing Categorical Data | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class2.html) | 2
-       | Displaying Quantitative Data | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class03.html) | 3
-Jun-2  | Distributions | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class04.html) | 4
-       | Standard Deviation and Normality | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class05.html) | 5
-Jun-4  | Scatterplots, Association, Correlation | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class06.html) | 6
-       | Linear Regression | [Slides 7](Slides/Class07.html) [Slides 8](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class07.html) | 7 & 8
-Jun-9  | Understanding Randomness | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class09.html) | 9
-       | Sample Surveys | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class10.html) | 10
-Jun-11 | Experiments and Observational Studies | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class11.html) | 11
-       | From Randomness to Probability | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class12.html) | 12
-Jun-16 | Probability Rules | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class13.html) | 13
-       | Random Variables and Probability Models | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class14.html) | 14
-Jun-18 | Sampling Distribution Models | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class15.html) | 15
-       | Confidence Intervals for Proportions | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class16.html) | 16
-Jun-23 | Inference about Means | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class17.html) | 18
-       | Comparing Groups | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class18.html) | 20
-       | Paired Samples and Block | [Slides](https://rawgithub.com/jbryer/EPSY530Fall2013/master/Slides/Class19.html) | 21
+May-29 | Introduction / Variables | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class01.html) | 1
+       | Displaying and Describing Categorical Data | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class02.html) | 2
+       | Displaying Quantitative Data | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class03.html) | 3
+Jun-2  | Distributions | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class04.html) | 4
+       | Standard Deviation and Normality | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class05.html) | 5
+Jun-4  | Scatterplots, Association, Correlation | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class06.html) | 6
+       | Linear Regression | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class07.html) [Worksheet](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/LinearRegression.html) | 7 & 8
+Jun-9  | Understanding Randomness | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class09.html) | 9
+       | Sample Surveys | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class10.html) | 10
+Jun-11 | Experiments and Observational Studies | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class11.html) | 11
+       | From Randomness to Probability | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class12.html) | 12
+Jun-16 | Probability Rules | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class13.html) | 13
+       | Random Variables and Probability Models | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class14.html) | 14
+Jun-18 | Sampling Distribution Models | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class15.html) | 15
+       | Confidence Intervals for Proportions | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class16.html) | 16
+Jun-23 | Inference about Means | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class18.html) | 18
+       | Comparing Groups | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class20.html) | 20
+       | Paired Samples and Block | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class21.html) | 21
 Jun-25 | |  | 
 Jun-30 | Review - Distribute take-home question.
 Jul-2 | Final Exam
@@ -101,9 +101,9 @@ You can find a lot of the material in *R in Action* on Kabacoff's website, [stat
 
 ### Project
 
-An important part of learning statistics is to work with a real dataset. For this project, you will analyze data from one country in the 2009 Programme of International Student Assessment (PISA). This study is designed to evaluate what approximately 15-year-old students know in science, math, and reading. You can [download the report template here](https://github.com/jbryer/EPSY530Fall2013/blob/master/Project/EPSY530-Project.Rmd). For your country, do the following:
+An important part of learning statistics is to work with a real dataset. For this project, you will analyze data from one country in the 2009 Programme of International Student Assessment (PISA). This study is designed to evaluate what approximately 15-year-old students know in science, math, and reading. You can [download the report template here](https://github.com/jbryer/EPSY530Summer2014/blob/master/Project/EPSY530-Project.Rmd). For your country, do the following:
 
-1. For each variable beginning with `ST`, define what that variable is and whether it is quantiative or qualitative. [Click here to download the codebook](https://github.com/jbryer/EPSY530Fall2013/blob/master/Project/Codebook_Stu09_Dec10.pdf)
+1. For each variable beginning with `ST`, define what that variable is and whether it is quantiative or qualitative. [Click here to download the codebook](https://github.com/jbryer/EPSY530Summer2014/blob/master/Project/Codebook_Stu09_Dec10.pdf)
 2. Provide descriptive statistics for each `ST` variable. Use the `summary` and `sd` functions for quantitative variable and `table` for qualitative variable.
 3. Provide visualizations for the `ST` variables. Use barplots for qualitative variables and boxplots and histograms for quantitative variables.
 4. Write a paragraph describing your sample using the results from steps 2 and 3.

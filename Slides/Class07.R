@@ -3,63 +3,54 @@
 require(ggplot2)
 require(gdata)
 options(digits=4, width=95)
-opts_chunk$set(fig.path='Figures/Class06-')
+opts_chunk$set(fig.path='Figures/Class07-')
 opts_chunk$set(comment=NA)
 source('../R/contingency.table.R')
 
-load('../Data/titanic.Rda')
-movies <- read.csv('../Data/Textbook/Chapter_3/movie_lengths_2010.csv', stringsAsFactors=FALSE)
-ozone <- read.csv('../Data/Textbook/Chapter_4/Ozone.csv', stringsAsFactors=FALSE)
-ozone$Ozone <- as.numeric(ozone$Ozone)
-ozone <- ozone[!is.na(ozone$Ozone),]
-
-load('../Data/WorldData.Rda')
-worldData3 <- worldData3[!is.nan(worldData3$GDP),]
-
-# See http://data.giss.nasa.gov/gistemp/tabledata_v3/GLB.Ts+dSST.txt
-temp <- read.table('../Data/GlobalTemp.txt', header=TRUE, strip.white=TRUE)
-temp$means <- rowMeans(aggregate(temp[,c("DJF","MAM","JJA","SON")], by=list(temp$Year), FUN="mean")[,2:5])
-temp$meansF <- temp$means / 100 * 1.8
-
-fuel <- read.csv('../Data/Textbook/Chapter_6/Fuel_economy_2010.csv')
-housing <- read.csv('../Data/Textbook/Chapter_6/Income_and_Housing.csv')
-
-load('../Data/ipedsSAT.Rda')
-ipedsSAT <- ipedsSAT[,c('SATMath','SATWriting','SATTotal','AcceptanceTotal','FullTimeRetentionRate')]
-names(ipedsSAT)[5] <- 'Retention'
-ipedsSAT <- ipedsSAT[complete.cases(ipedsSAT),]
+sat <- read.csv('../Data/Textbook/Chapter_7/SAT_scores.csv', stringsAsFactors=FALSE)
+sat$Verbal.SAT <- as.integer(sat$Verbal.SAT)
+sat$Math.SAT <- as.integer(sat$Math.SAT)
+sat <- sat[complete.cases(sat),]
 
 
 
-ggplot(temp, aes(x=Year, y=means)) + geom_point()
+cor(sat$Math.SAT, sat$Verbal.SAT)
 
 
 
-ggplot(fuel, aes(x=hp, y=mpg)) + geom_point()
+sat.lm <- lm(Math.SAT ~ Verbal.SAT, data=sat)
+summary(sat.lm)
+ggplot(sat, aes(x=Verbal.SAT, y=Math.SAT)) + 
+	geom_point(color='black') + 
+	geom_abline(slope=sat.lm$coefficients[2], intercept=sat.lm$coefficients[1],
+				color='red', size=2) +
+	geom_hline(yintercept=mean(sat$Math.SAT), color='blue', size=1) +
+	geom_vline(xintercept=mean(sat$Verbal.SAT), color='blue', size=1)
 
 
 
-ggplot(housing, aes(x=Median.income, y=Housing.Cost)) + geom_point()
+(sat.lm = lm(Math.SAT ~ Verbal.SAT, data=sat))
 
 
 
-meanSAT = mean(ipedsSAT$SATTotal)
-meanRetention = mean(ipedsSAT$Retention)
+sat.residual = resid(sat.lm)
+plot(sat$Verbal.SAT, sat.residual)
 
 
 
-ipedsSAT$Association = ifelse((ipedsSAT$SATTotal > meanSAT & ipedsSAT$Retention > meanRetention) | (ipedsSAT$SATTotal < meanSAT & ipedsSAT$Retention < meanRetention), '+', '-')
+hist(sat.residual)
 
 
 
-ggplot(ipedsSAT, aes(x=SATTotal, 
-	y=Retention, color=Association)) + 
-	geom_vline(xintercept=meanSAT) +
-	geom_hline(yintercept=meanRetention) +
-	geom_point()
+cor(sat$Verbal.SAT, sat$Math.SAT) ^ 2
 
 
 
-cor(ipedsSAT$SATTotal, ipedsSAT$Retention)
+require(reshape2)
+sat$residuals = sat.residual + mean(sat$Math.SAT)
+sat$Verbal.SAT.z = (sat$Verbal.SAT - mean(sat$Verbal.SAT)) / sd(sat$Verbal.SAT)
+sat$Math.SAT.z = (sat$Math.SAT - mean(sat$Math.SAT)) / sd(sat$Math.SAT)
+sat.melted = melt(sat[,c('Math.SAT', 'residuals')])
+ggplot(sat.melted, aes(x=variable, y=value)) + geom_boxplot()
 
 

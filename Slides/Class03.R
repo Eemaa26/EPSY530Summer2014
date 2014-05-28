@@ -8,80 +8,56 @@ opts_chunk$set(comment=NA)
 source('../R/contingency.table.R')
 
 
-
-R.version$version.string
-
-
-
-2+2
-1 + sin(9)
-23.76 * log(8)/(23+atan(9))
+load('../Data/titanic.Rda')
+movies <- read.csv('../Data/Textbook/Chapter_3/movie_lengths_2010.csv', stringsAsFactors=FALSE)
 
 
 
-## install.packages(c('ggplot2', 'foreign', 'psych'))
+hist(movies$Running.Time)
 
 
 
-## update.packages(ask=FALSE)
+ggplot(movies, aes(x=Running.Time)) + geom_histogram()
 
 
 
-## library()
+ggplot(movies, aes(x=Running.Time)) + 
+	geom_histogram(binwidth=15)
 
 
 
-require(ggplot2)
-require(foreign)
+movies[movies$Running.Time < 50, ]
 
 
 
-search()
+stem(movies$Running.Time)
 
 
 
-ls('package:foreign')
+(mediantime <- median(movies$Running.Time))
+ggplot(movies, aes(x=Running.Time, y='Length')) + geom_point() + 
+	geom_vline(xintercept=mediantime, color='blue')
 
 
 
-## data(package='ggplot2')
+(meantime <- mean(movies$Running.Time))
+ggplot(movies, aes(x=Running.Time, y='Length')) + geom_point() + 
+	geom_vline(xintercept=mediantime, color='blue') + geom_vline(xintercept=meantime, color='red')
 
 
 
-## vignette(package='psych')
+summary(movies$Running.Time)
 
 
 
-## help.search('cross tabs')
+boxplot(movies$Running.Time)
 
 
 
-require(gdata)
-mathAnxiety <- read.xls('../Data/MathAnxiety.xls', sheet=1)
-names(mathAnxiety)
-nrow(mathAnxiety)
-ncol(mathAnxiety)
+ggplot(movies, aes(x='Movie', y=Running.Time)) + geom_boxplot()
 
 
 
-shy = read.spss("../Data/Exercise2.sav", use.value.labels=FALSE, to.data.frame=TRUE)
-names(shy)
-
-
-
-titanic <- read.csv('../Data/titanic.csv')
-
-
-
-## titanic <- read.table('../Data/titanic.csv', header=TRUE, sep=',', quote='\"')
-
-
-
-class(titanic)
-head(titanic, n=3)
-
-
-
-str(titanic)
+ggplot(titanic, aes(x=survived, y=age)) + geom_boxplot()
 
 

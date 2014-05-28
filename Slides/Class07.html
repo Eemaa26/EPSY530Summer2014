@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Scatterplots, Association, Correlation</title>
+  <title>Linear Regression</title>
   <meta charset="utf-8">
-  <meta name="description" content="Scatterplots, Association, Correlation">
+  <meta name="description" content="Linear Regression">
   <meta name="author" content="Jason Bryer">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,67 +32,77 @@
     <!-- Should I move this to a Local Layout File? -->
     <slide class="title-slide segue nobackground">
       <hgroup class="auto-fadein">
-        <h1>Scatterplots, Association, Correlation</h1>
+        <h1>Linear Regression</h1>
         <h2>Chapter 7</h2>
         <p>Jason Bryer<br/>epsy530.bryer.org</p>
       </hgroup>
           </slide>
 
     <!-- SLIDES -->
-      <slide class="" id="slide-1" style="background:;">
+      <slide class="" id="">
   <hgroup>
-    <h2>Scatterplots</h2>
+    <h2>The Linear Model</h2>
   </hgroup>
   <article>
-    <ul>
-<li>Scatterplots exhibit the relationship between two variables.</li>
-<li>Used for detecting patterns, trends, relationships, and extraordinary values.</li>
-</ul>
+      
+    <div class='left' style='float:left;width:48%'>
+     <p>Math and verbal SAT Scores.</p>
 
-<pre><code class="r">ggplot(temp, aes(x=Year, y=means)) + geom_point()
+<pre><code class="r">cor(sat$Math.SAT, sat$Verbal.SAT)
 </code></pre>
 
-<p><img src="Figures/Class06-unnamed-chunk-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
-
-<p>-- &amp;twocol</p>
-
-<h2>Scatterplots</h2>
+<pre><code>[1] 0.6846
+</code></pre>
 
 
+    </div>    
+    <div class='right' style='float:right;width:48%'>
+     <p><img src="Figures/Class07-unnamed-chunk-3.png" alt="plot of chunk unnamed-chunk-3"> </p>
+
+    </div>
   </article>
-  <!-- Presenter Notes -->
 </slide>
-
-      <slide class="" id="slide-2" style="background:;">
+      <slide class="" id="">
   <hgroup>
-    <h2>Direction of Association</h2>
+    <h2>Residuals</h2>
   </hgroup>
   <article>
-    <ul>
-<li>Negative Direction: As one goes up, the other goes down.<br>
-<img src='Figures/scatter-negative.png' width=100></li>
-<li>Positive Direction: As one goes up, the other goes up also.<br>
-<img src='Figures/scatter-positive.png' width=100></li>
-<li>No Direction<br>
-<img src='Figures/scatter-none.png' width=100></li>
+      
+    <div class='left' style='float:left;width:48%'>
+     <ul>
+<li>\(\widehat{y}\) is the predicted value.</li>
+<li>The residual is defined by \(y - \widehat{y}\)</li>
+<li>That is, the residual is the difference between the observed value and the predicted value.</li>
+<li>Squaring all residuals makes them possitive.</li>
+<li>The line of best fit then, or least squares line, minimizes the squares of the residuals.</li>
 </ul>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
 
+    </div>    
+    <div class='right' style='float:right;width:48%'>
+     <p><img src='Figures/Class07-Residuals.png' width='80%'>
+<img src='Figures/Class07-Residuals2.png' width='80%'></p>
+
+    </div>
+  </article>
+</slide>
       <slide class="" id="slide-3" style="background:;">
   <hgroup>
-    <h2>Form</h2>
+    <h2>The Line of Best Fit</h2>
   </hgroup>
   <article>
-    <ul>
-<li>Linear:  The points cluster near a line.<br>
-<img src='Figures/scatter-linear.png' width=100></li>
-<li>Gently curves in a direction. May be able to straighten with a transformation.<br>
-<img src='Figures/scatter-curved1.png' width=100></li>
-<li>Curves up and down.  Difficult to straighten<br>
-<img src='Figures/scatter-curved2.png' width=100></li>
+    <p>Line from algebra:</p>
+
+<ul>
+<li>\(y = mx + b\)</li>
+</ul>
+
+<p>Line of best fit:</p>
+
+<ul>
+<li>\(\widehat { y } ={ b }_{ 0 }+{ b }_{ 1 }x\)</li>
+<li>\({b}_{1}\) is the slope.</li>
+<li>\({b}_{0}\) is the y-intercept. That is, the value of \(\widehat{y}\) when \(x = 0\).</li>
 </ul>
 
   </article>
@@ -101,16 +111,24 @@
 
       <slide class="" id="slide-4" style="background:;">
   <hgroup>
-    <h2>Strength of Relationship</h2>
+    <h2>The Line of Best Fit: SAT Scores</h2>
   </hgroup>
   <article>
-    <ul>
-<li>Strong linear relationship<br>
-<img src='Figures/scatter-strong.png' width=100></li>
-<li>Moderate linear relationship<br>
-<img src='Figures/scatter-moderate.png' width=100></li>
-<li>No linear relationship<br>
-<img src='Figures/scatter-none.png' width=100></li>
+    <pre><code class="r">(sat.lm = lm(Math.SAT ~ Verbal.SAT, data = sat))
+</code></pre>
+
+<pre><code>
+Call:
+lm(formula = Math.SAT ~ Verbal.SAT, data = sat)
+
+Coefficients:
+(Intercept)   Verbal.SAT  
+    209.554        0.675  
+</code></pre>
+
+<ul>
+<li>\({b}_{1} = 0.675\) (slope) - for each 1-point increase in Verbal SAT, we expect the Math SAT score to increase by 0.675.</li>
+<li>\({b}_{0} = 210\) (y-intercept)</li>
 </ul>
 
   </article>
@@ -119,84 +137,51 @@
 
       <slide class="" id="slide-5" style="background:;">
   <hgroup>
-    <h2>Variables</h2>
+    <h2>Slope and Correlation</h2>
   </hgroup>
   <article>
-    <ul>
-<li><b>Response Variable</b> (y): The variable of interest.  It is what we want to predict.</li>
-<li><b>Explanatory or Predictor Variable</b> (x): The variable that we use to provide information or a prediction of the response variable.</li>
-<li>Choosing the response variable and the explanatory variable depends on how we think about the problem.<br></li>
-</ul>
-
-<p>For example:</p>
+    <p>\[{ b }_{ 1 }=r\frac { { S }_{ y } }{ { S }_{ x } } \]</p>
 
 <ul>
-<li>Do baseball teams that score more runs also sell more tickets?<br>
-Tickets = Response (y), Runs = Explanatory (x)</li>
-<li>Do students with higher SAT scores get better grades?<br>
-Grades = Response (y), SAT score = Explanatory (x)</li>
-<li>Can we estimate a person’s BMI by measuring their wrist size?<br>
-BMI = Response (y), Wrist Size = Explanatory (x)</li>
+<li>Since the standard deviations are always positive, the slope and the correlation always have the same sign.</li>
+<li>The correlation has no units, but the slope has units of y over units of x.<br></li>
 </ul>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="">
+      <slide class="" id="slide-6" style="background:;">
   <hgroup>
-    <h2>Correlation</h2>
+    <h2>The y-intercept</h2>
   </hgroup>
   <article>
-      
-    <div class='left' style='float:left;width:48%'>
-     <ul>
-<li>How strong is the relationship between SAT scores and full-time retention?</li>
-<li>For the green dots: z-scores have the same sign, so multiplying the z-scores produces a positive value.<br></li>
-<li>For the red dots:  z-scores have opposite signs, so multiplying the z-scores produces a negative value.</li>
-<li>Define the correlation coefficient by an almost average product of the z-scores:</li>
+    <p>The y-intercept and the slope are related by:
+\[\overline{y} = {b}_{0} + {b}_{1} \overline{x} \]</p>
+
+<ul>
+<li>The point corresponding to the mean of x and y will always fall on the line of best fit.</li>
+<li>Given the mean of x, the mean of y, and the slope, we can find the y-intercept.</li>
 </ul>
 
-<p>\[ r=\frac { \sum { { z }_{ x }{ z }_{ y } }  }{ n-1 } \]</p>
+<p>\[{b}_{0} = \overline{y} - {b}_{1} \overline{x} \]</p>
 
-<pre><code class="r">meanSAT = mean(ipedsSAT$SATTotal)
-meanRetention = mean(ipedsSAT$Retention)
-</code></pre>
-
-
-    </div>    
-    <div class='right' style='float:right;width:48%'>
-     <pre><code class="r">ggplot(ipedsSAT, aes(x=SATTotal, 
-    y=Retention, color=Association)) + 
-    geom_vline(xintercept=meanSAT) +
-    geom_hline(yintercept=meanRetention) +
-    geom_point()
-</code></pre>
-
-<p><img src="Figures/Class06-unnamed-chunk-6.png" alt="plot of chunk unnamed-chunk-6"> </p>
-
-    </div>
   </article>
+  <!-- Presenter Notes -->
 </slide>
+
       <slide class="" id="slide-7" style="background:;">
   <hgroup>
-    <h2>Assumptions and Conditions for Correlation</h2>
+    <h2>Assumptions for Using Regression</h2>
   </hgroup>
   <article>
-    <ul>
-<li>To use r, there must be a true underlying <i>linear relationship</i> between the two variables.</li>
-<li>The variables must be <i>quantitative</i>.</li>
-<li>The pattern for the points of the scatterplot must be <i>reasonably straight</i>.</li>
-<li>Outliers can strongly affect the correlation.  Look at the scatterplot to make sure that there are <i>no strong outliers</i>. </li>
+    <p>The line of best fit is also called the least squares line or the regression line.  Only use the regression line to make predictions if:</p>
+
+<ul>
+<li>The variable must be Quantitative.</li>
+<li>The relationship is Straight Enough.</li>
+<li>There should be no Outliers.</li>
 </ul>
-
-<h2>Calculating correlation in R</h2>
-
-<pre><code class="r">cor(ipedsSAT$SATTotal, ipedsSAT$Retention)
-</code></pre>
-
-<pre><code>[1] 0.7909
-</code></pre>
 
   </article>
   <!-- Presenter Notes -->
@@ -204,20 +189,21 @@ meanRetention = mean(ipedsSAT$Retention)
 
       <slide class="" id="slide-8" style="background:;">
   <hgroup>
-    <h2>Properites of Correlation</h2>
+    <h2>Correlation and Prediction</h2>
   </hgroup>
   <article>
     <ul>
-<li>r &gt; 0 → positive association</li>
-<li>r &lt; 0 → negative association</li>
-<li>−1 &lt; r &lt; 1, with r = − 1 only if the points all lie exactly on a negatively sloped line and r = 1 only if the points all lie exactly on a positively sloped line.</li>
-<li>Interchanging x and y does not change the correlation.</li>
-<li>r has no units.<br></li>
-<li>Changing the units of x or y does not affect r.</li>
-<li>Measuring in dollars, cents, or Euros will all produce the same correlation.</li>
-<li>Correlation measures the strength of the linear association between the two variables.</li>
-<li>Correlation is sensitive to outliers.  An extreme outlier can cause a dramatic change in r.</li>
-<li>The adjectives weak, moderate, and strong can describe correlation, but there are no agreed upon boundaries.</li>
+<li>A new male student joins the class. How tall is he in inches? Best guess would be the mean (\({\widehat{z}}_{in} = 0)\).</li>
+<li>What if you also know his GPA was 3.94 (\({z}_{GPA} = 2\))?<br>
+Best guess for height would not change.</li>
+<li>What would your guess for height be if you knew the student’s shoe size had z = 2?
+
+<ul>
+<li>The correlation is positive(\(0 < {z}_{in} < 2\)).</li>
+<li>Since \({b}_{0} = {b}_{1} \overline{x} - \overline{y}\) and the means for z-scores are both 0, this gives \({b}_{0} = 0\).</li>
+<li>Since the standard deviations are both 1, \({b}_{1}=r\frac{{S}_{y}}{{S}_{x}}\) gives \({b}_{1} = r\). Substituting into \(\widehat{y} = b_0 + {b}_{1}x\) gives:
+\[\widehat{z}_{y} = r{z}_{x}\]</li>
+</ul></li>
 </ul>
 
   </article>
@@ -226,31 +212,213 @@ meanRetention = mean(ipedsSAT$Retention)
 
       <slide class="" id="slide-9" style="background:;">
   <hgroup>
-    <h2>Correlation DOES NOT mean causation</h2>
+    <h2>Regression to the mean</h2>
   </hgroup>
   <article>
     <ul>
-<li>Causation is a possibility, but more must be done to prove causation.</li>
-<li>The causation could be in reverse (y causes x)</li>
-<li>A lurking variable may cause both.</li>
+<li>Galton’s Discovery: Tall parents have tall children, but the children’s heights are likely to be closer to the mean than the parent’s heights.</li>
+<li>Since \(-1 \le r \le 1\), \(r{z}_{x}\) is smaller in absolute value than the \(z_x\). This is called <em>regression to the mean</em>.</li>
+<li>The greater the deviation of a random variable from its mean, the greater the probability that the next measured variate will deviate less fars. </li>
+<li>In other words, an extreme event is likely to be followed by a less extreme event.</li>
 </ul>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-10" style="background:;">
+      <slide class="" id="">
   <hgroup>
-    <h2>Guidelines for Re-Expressions</h2>
+    <h2>Residuals Revisited</h2>
+  </hgroup>
+  <article>
+      
+    <div class='left' style='float:left;width:48%'>
+     <p>The regression model is a good model if the residual scatterplot has no interesting features.  </p>
+
+<ul>
+<li>No direction</li>
+<li>No shape</li>
+<li>No bends</li>
+<li>No outliers</li>
+<li>No identifiable pattern</li>
+</ul>
+
+
+    </div>    
+    <div class='right' style='float:right;width:48%'>
+     <pre><code class="r">sat.residual = resid(sat.lm)
+plot(sat$Verbal.SAT, sat.residual)
+</code></pre>
+
+<p><img src="Figures/Class07-residualplot.png" alt="plot of chunk residualplot"> </p>
+
+    </div>
+  </article>
+</slide>
+      <slide class="" id="">
+  <hgroup>
+    <h2>The Residual Standard Deviation</h2>
+  </hgroup>
+  <article>
+      
+    <div class='left' style='float:left;width:48%'>
+     <ul>
+<li>Since the mean of the residuals is 0, the standard deviation of the residuals is a measure of how small the residuals are.</li>
+<li>Equal Variance Assumption: A good model will have the spread of the residuals consistent and small</li>
+</ul>
+
+
+    </div>    
+    <div class='right' style='float:right;width:48%'>
+     <pre><code class="r">hist(sat.residual)
+</code></pre>
+
+<p><img src="Figures/Class07-unnamed-chunk-5.png" alt="plot of chunk unnamed-chunk-5"> </p>
+
+    </div>
+  </article>
+</slide>
+      <slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Comparing the Variation of y with the Variation of the Residuals</h2>
+  </hgroup>
+  <article>
+    <p>\(r = -1\) or \(r = 1\)</p>
+
+<ul>
+<li>The residuals are all 0.  There is no variation of the residuals.</li>
+</ul>
+
+<p>\(r = 0\)</p>
+
+<ul>
+<li>The regression line is horizontal through the mean.</li>
+<li>The residuals are the y values minus the mean.</li>
+<li>The variation of the residuals would be the same as the variation of the original y values.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="">
+  <hgroup>
+    <h2>Comparing the Variation of y with the Variation of the Residuals:  General r</h2>
+  </hgroup>
+  <article>
+      
+    <div class='left' style='float:left;width:48%'>
+     <ul>
+<li><p>\({r}^{2}\) (written \(R^2\)) gives the fraction ofthe data’s variation accounted for by the model</p></li>
+<li><p>47% of the variability in the Math score is accounted for by the variation in Verbal score.</p></li>
+<li><p>53% of the variability in the Math score is left in the residuals (i.e unaccounted for by other factors).</p></li>
+</ul>
+
+
+    </div>    
+    <div class='right' style='float:right;width:48%'>
+     <pre><code class="r">cor(sat$Verbal.SAT, sat$Math.SAT)^2
+</code></pre>
+
+<pre><code>[1] 0.4687
+</code></pre>
+
+<p><img src="Figures/Class07-unnamed-chunk-7.png" alt="plot of chunk unnamed-chunk-7"> </p>
+
+    </div>
+  </article>
+</slide>
+      <slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>When is R-Squared Big Enough</h2>
+  </hgroup>
+  <article>
+    <p>\(R^2\) provides us with a measure of how useful the regression line is as a prediction tool.</p>
+
+<ul>
+<li>If \(R^2\) is close to 1, then the regression line is useful.</li>
+<li>If \(R^2\) is close to 0, then the regression line is not useful.</li>
+<li>What &quot;close to&quot; means depends on who is using it.</li>
+<li>Good Practice:  Always report \(R^2\) and let the researcher decide.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>Beware of Just Switching x and y</h2>
   </hgroup>
   <article>
     <ul>
-<li>Scatterplot bends downwards → \(y^{2}\)</li>
-<li>Scatterplot is linear → No change</li>
-<li>For data that is a count → \(y^{\frac{1}{y}}\)</li>
-<li>For data that is always positive → \(log(y)\)</li>
-<li>If nothing else seems to work try → \(y^{-\frac{1}{2}}\)</li>
-<li>For ratios such as miles per gallon → \(\frac{1}{y}\)</li>
+<li>Switching x and y in the regression equation and solving for x does not give the equation of the regression line in reverse.</li>
+<li>Instead, you must start over with all the computations.</li>
+<li>This is no big deal if you use a computer or calculator, since the data is already entered.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Conditions to Check For</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Quantitative Variable Condition:  Regression analysis cannot be used for qualitative variables.</li>
+<li>Straight Enough Condition:  The scatterplot should indicate a relatively straight pattern.</li>
+<li>Outlier Condition:  Outliers dramatically influence the fit of the least squares line.</li>
+<li>Does the Plot Thicken? Condition: The data should not become more spread out as the values of x increase.  The spread should be relatively consistent for all x.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>Conditions on the Scatterplot of the Residuals</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>There should be no bends.</li>
+<li>There should be no outliers.</li>
+<li>There should be no changes in the spread from one part of the plot to another.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>Causation and Regression</h2>
+  </hgroup>
+  <article>
+    <p><strong>Never report out a cause and effect relationship based solely on regression analysis.</strong></p>
+
+<ul>
+<li>Even when correlation is high and the model was reasonably linear, we would need a scientific explanation to conclude cause and effect. Regression analysis alone can never prove cause and effect.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>What Can Go Wrong?</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Don’t fit a straight line to a nonlinear relationship.<br>
+If there are curves and bends in the scatterplot, don’t use regression analysis.</li>
+<li>Don’t ignore outliers.<br>
+Instead report them out and think twice before using regression analysis.</li>
+<li>Don’t invert the regression.<br>
+Switching x and y does not mean just solving for x in the least squares line.  You must start over.</li>
 </ul>
 
   </article>

@@ -1,5 +1,5 @@
 ---
-title       : Scatterplots, Association, Correlation
+title       : Linear Regression
 subtitle    : Chapter 7
 author      : Jason Bryer
 job         : epsy530.bryer.org
@@ -8,192 +8,257 @@ highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
 widgets     : [mathjax]            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
----
+--- &twocol
 
-```{r setup, echo=FALSE, results='hide', warning=FALSE}
+```{r, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
 require(ggplot2)
 require(gdata)
 options(digits=4, width=95)
-opts_chunk$set(fig.path='Figures/Class06-')
+opts_chunk$set(fig.path='Figures/Class07-')
 opts_chunk$set(comment=NA)
 source('../R/contingency.table.R')
 
-load('../Data/titanic.Rda')
-movies <- read.csv('../Data/Textbook/Chapter_3/movie_lengths_2010.csv', stringsAsFactors=FALSE)
-ozone <- read.csv('../Data/Textbook/Chapter_4/Ozone.csv', stringsAsFactors=FALSE)
-ozone$Ozone <- as.numeric(ozone$Ozone)
-ozone <- ozone[!is.na(ozone$Ozone),]
-
-load('../Data/WorldData.Rda')
-worldData3 <- worldData3[!is.nan(worldData3$GDP),]
-
-# See http://data.giss.nasa.gov/gistemp/tabledata_v3/GLB.Ts+dSST.txt
-temp <- read.table('../Data/GlobalTemp.txt', header=TRUE, strip.white=TRUE)
-temp$means <- rowMeans(aggregate(temp[,c("DJF","MAM","JJA","SON")], by=list(temp$Year), FUN="mean")[,2:5])
-temp$meansF <- temp$means / 100 * 1.8
-
-fuel <- read.csv('../Data/Textbook/Chapter_6/Fuel_economy_2010.csv')
-housing <- read.csv('../Data/Textbook/Chapter_6/Income_and_Housing.csv')
-
-load('../Data/ipedsSAT.Rda')
-ipedsSAT <- ipedsSAT[,c('SATMath','SATWriting','SATTotal','AcceptanceTotal','FullTimeRetentionRate')]
-names(ipedsSAT)[5] <- 'Retention'
-ipedsSAT <- ipedsSAT[complete.cases(ipedsSAT),]
+sat <- read.csv('../Data/Textbook/Chapter_7/SAT_scores.csv', stringsAsFactors=FALSE)
+sat$Verbal.SAT <- as.integer(sat$Verbal.SAT)
+sat$Math.SAT <- as.integer(sat$Math.SAT)
+sat <- sat[complete.cases(sat),]
 ```
 
-## Scatterplots
+## The Linear Model
 
-* Scatterplots exhibit the relationship between two variables.
-* Used for detecting patterns, trends, relationships, and extraordinary values.
+*** left 
 
-```{r, fig.width=12, fig.height=5, tidy=FALSE, message=FALSE, tidy=FALSE}
-ggplot(temp, aes(x=Year, y=means)) + geom_point()
-```
+Math and verbal SAT Scores.
 
--- &twocol
-
-## Scatterplots
-
-*** left
-
-```{r, fig.width=6, fig.height=5, tidy=FALSE, message=FALSE, tidy=FALSE}
-ggplot(fuel, aes(x=hp, y=mpg)) + geom_point()
+```{r}
+cor(sat$Math.SAT, sat$Verbal.SAT)
 ```
 
 *** right
 
-```{r, fig.width=6, fig.height=5, tidy=FALSE, message=FALSE, tidy=FALSE}
-ggplot(housing, aes(x=Median.income, y=Housing.Cost)) + geom_point()
+```{r results='hide', echo=FALSE, message=FALSE}
+sat.lm <- lm(Math.SAT ~ Verbal.SAT, data=sat)
+summary(sat.lm)
+ggplot(sat, aes(x=Verbal.SAT, y=Math.SAT)) + 
+	geom_point(color='black') + 
+	geom_abline(slope=sat.lm$coefficients[2], intercept=sat.lm$coefficients[1],
+				color='red', size=2) +
+	geom_hline(yintercept=mean(sat$Math.SAT), color='blue', size=1) +
+	geom_vline(xintercept=mean(sat$Verbal.SAT), color='blue', size=1)
 ```
-
----
-
-## Direction of Association
-
-* Negative Direction: As one goes up, the other goes down.  
-	<img src='Figures/scatter-negative.png' width=100>
-* Positive Direction: As one goes up, the other goes up also.  
-	<img src='Figures/scatter-positive.png' width=100>
-* No Direction  
-	<img src='Figures/scatter-none.png' width=100>
-
----
-
-## Form
-
-* Linear:  The points cluster near a line.  
-	<img src='Figures/scatter-linear.png' width=100>
-* Gently curves in a direction. May be able to straighten with a transformation.  
-	<img src='Figures/scatter-curved1.png' width=100>
-* Curves up and down.  Difficult to straighten  
-	<img src='Figures/scatter-curved2.png' width=100>
-
----
-
-## Strength of Relationship
-
-* Strong linear relationship  
-	<img src='Figures/scatter-strong.png' width=100>
-* Moderate linear relationship  
-	<img src='Figures/scatter-moderate.png' width=100>
-* No linear relationship  
-	<img src='Figures/scatter-none.png' width=100>
-
----
-
-## Variables
-
-* <b>Response Variable</b> (y): The variable of interest.  It is what we want to predict.
-* <b>Explanatory or Predictor Variable</b> (x): The variable that we use to provide information or a prediction of the response variable.
-* Choosing the response variable and the explanatory variable depends on how we think about the problem.  
-
-For example:
-
-* Do baseball teams that score more runs also sell more tickets?  
-	Tickets = Response (y), Runs = Explanatory (x)
-* Do students with higher SAT scores get better grades?  
-	Grades = Response (y), SAT score = Explanatory (x)
-* Can we estimate a person’s BMI by measuring their wrist size?  
-	BMI = Response (y), Wrist Size = Explanatory (x)
 
 --- &twocol
 
-## Correlation
+## Residuals
 
 *** left
 
-* How strong is the relationship between SAT scores and full-time retention?
-* For the green dots: z-scores have the same sign, so multiplying the z-scores produces a positive value.    
-* For the red dots:  z-scores have opposite signs, so multiplying the z-scores produces a negative value.
-* Define the correlation coefficient by an almost average product of the z-scores:
-
-$$ r=\frac { \sum { { z }_{ x }{ z }_{ y } }  }{ n-1 } $$
-
-```{r}
-meanSAT = mean(ipedsSAT$SATTotal)
-meanRetention = mean(ipedsSAT$Retention)
-```
-
-```{r, echo=FALSE, results='hide'}
-ipedsSAT$Association = ifelse((ipedsSAT$SATTotal > meanSAT & ipedsSAT$Retention > meanRetention) | (ipedsSAT$SATTotal < meanSAT & ipedsSAT$Retention < meanRetention), '+', '-')
-```
+* $\widehat{y}$ is the predicted value.
+* The residual is defined by $y - \widehat{y}$
+* That is, the residual is the difference between the observed value and the predicted value.
+* Squaring all residuals makes them possitive.
+* The line of best fit then, or least squares line, minimizes the squares of the residuals.
 
 *** right
 
-```{r, fig.width=6, fig.height=5, tidy=FALSE, message=FALSE, tidy=FALSE}
-ggplot(ipedsSAT, aes(x=SATTotal, 
-	y=Retention, color=Association)) + 
-	geom_vline(xintercept=meanSAT) +
-	geom_hline(yintercept=meanRetention) +
-	geom_point()
-```
+<img src='Figures/Class07-Residuals.png' width='80%'>
+<img src='Figures/Class07-Residuals2.png' width='80%'>
 
 ---
 
-## Assumptions and Conditions for Correlation
+## The Line of Best Fit
 
-* To use r, there must be a true underlying <i>linear relationship</i> between the two variables.
-* The variables must be <i>quantitative</i>.
-* The pattern for the points of the scatterplot must be <i>reasonably straight</i>.
-* Outliers can strongly affect the correlation.  Look at the scatterplot to make sure that there are <i>no strong outliers</i>. 
+Line from algebra:
+* $y = mx + b$
 
-## Calculating correlation in R
+Line of best fit:
+* $\widehat { y } ={ b }_{ 0 }+{ b }_{ 1 }x$
+* ${b}_{1}$ is the slope.
+* ${b}_{0}$ is the y-intercept. That is, the value of $\widehat{y}$ when $x = 0$.
+
+---
+
+## The Line of Best Fit: SAT Scores
 
 ```{r}
-cor(ipedsSAT$SATTotal, ipedsSAT$Retention)
+(sat.lm = lm(Math.SAT ~ Verbal.SAT, data=sat))
+```
+
+* ${b}_{1} = 0.675$ (slope) - for each 1-point increase in Verbal SAT, we expect the Math SAT score to increase by 0.675.
+* ${b}_{0} = 210$ (y-intercept)
+
+---
+
+## Slope and Correlation
+
+$${ b }_{ 1 }=r\frac { { S }_{ y } }{ { S }_{ x } } $$
+
+* Since the standard deviations are always positive, the slope and the correlation always have the same sign.
+* The correlation has no units, but the slope has units of y over units of x.  
+
+---
+
+## The y-intercept
+
+The y-intercept and the slope are related by:
+$$\overline{y} = {b}_{0} + {b}_{1} \overline{x} $$
+
+* The point corresponding to the mean of x and y will always fall on the line of best fit.
+* Given the mean of x, the mean of y, and the slope, we can find the y-intercept.
+
+$${b}_{0} = \overline{y} - {b}_{1} \overline{x} $$
+
+---
+
+## Assumptions for Using Regression
+
+The line of best fit is also called the least squares line or the regression line.  Only use the regression line to make predictions if:
+* The variable must be Quantitative.
+* The relationship is Straight Enough.
+* There should be no Outliers.
+
+---
+
+## Correlation and Prediction
+
+* A new male student joins the class. How tall is he in inches? Best guess would be the mean (${\widehat{z}}_{in} = 0)$.
+* What if you also know his GPA was 3.94 (${z}_{GPA} = 2$)?  
+	Best guess for height would not change.
+* What would your guess for height be if you knew the student’s shoe size had z = 2?
+	* The correlation is positive($0 < {z}_{in} < 2$).
+	* Since ${b}_{0} = {b}_{1} \overline{x} - \overline{y}$ and the means for z-scores are both 0, this gives ${b}_{0} = 0$.
+	* Since the standard deviations are both 1, ${b}_{1}=r\frac{{S}_{y}}{{S}_{x}}$ gives ${b}_{1} = r$. Substituting into $\widehat{y} = b_0 + {b}_{1}x$ gives:
+$$\widehat{z}_{y} = r{z}_{x}$$
+
+---
+
+## Regression to the mean
+
+* Galton’s Discovery: Tall parents have tall children, but the children’s heights are likely to be closer to the mean than the parent’s heights.
+* Since $-1 \le r \le 1$, $r{z}_{x}$ is smaller in absolute value than the $z_x$. This is called *regression to the mean*.
+* The greater the deviation of a random variable from its mean, the greater the probability that the next measured variate will deviate less fars. 
+* In other words, an extreme event is likely to be followed by a less extreme event.
+
+--- &twocol
+## Residuals Revisited
+
+*** left
+
+The regression model is a good model if the residual scatterplot has no interesting features.  
+* No direction
+* No shape
+* No bends
+* No outliers
+* No identifiable pattern
+
+*** right
+
+```{r residualplot, fig.width=6, fig.height=5}
+sat.residual = resid(sat.lm)
+plot(sat$Verbal.SAT, sat.residual)
+```
+
+--- &twocol
+
+## The Residual Standard Deviation
+
+*** left
+
+* Since the mean of the residuals is 0, the standard deviation of the residuals is a measure of how small the residuals are.
+* Equal Variance Assumption: A good model will have the spread of the residuals consistent and small
+
+*** right
+
+```{r, fig.width=6, fig.height=5}
+hist(sat.residual)
 ```
 
 ---
 
-## Properites of Correlation
+## Comparing the Variation of y with the Variation of the Residuals
 
-* r > 0 → positive association
-* r < 0 → negative association
-* −1 < r < 1, with r = − 1 only if the points all lie exactly on a negatively sloped line and r = 1 only if the points all lie exactly on a positively sloped line.
-* Interchanging x and y does not change the correlation.
-* r has no units.  
-* Changing the units of x or y does not affect r.
-* Measuring in dollars, cents, or Euros will all produce the same correlation.
-* Correlation measures the strength of the linear association between the two variables.
-* Correlation is sensitive to outliers.  An extreme outlier can cause a dramatic change in r.
-* The adjectives weak, moderate, and strong can describe correlation, but there are no agreed upon boundaries.
+$r = -1$ or $r = 1$
+* The residuals are all 0.  There is no variation of the residuals.
+
+$r = 0$
+* The regression line is horizontal through the mean.
+* The residuals are the y values minus the mean.
+* The variation of the residuals would be the same as the variation of the original y values.
+
+--- &twocol
+
+## Comparing the Variation of y with the Variation of the Residuals:  General r
+
+*** left
+* ${r}^{2}$ (written $R^2$) gives the fraction ofthe data’s variation accounted for by the model
+
+* 47% of the variability in the Math score is accounted for by the variation in Verbal score.
+* 53% of the variability in the Math score is left in the residuals (i.e unaccounted for by other factors).
+
+*** right
+
+```{r}
+cor(sat$Verbal.SAT, sat$Math.SAT) ^ 2
+```
+
+```{r, echo=FALSE, results='hide', message=FALSE, warning=FALSE, fig.width=6, fig.height=4}
+require(reshape2)
+sat$residuals = sat.residual + mean(sat$Math.SAT)
+sat$Verbal.SAT.z = (sat$Verbal.SAT - mean(sat$Verbal.SAT)) / sd(sat$Verbal.SAT)
+sat$Math.SAT.z = (sat$Math.SAT - mean(sat$Math.SAT)) / sd(sat$Math.SAT)
+sat.melted = melt(sat[,c('Math.SAT', 'residuals')])
+ggplot(sat.melted, aes(x=variable, y=value)) + geom_boxplot()
+```
 
 ---
 
-## Correlation DOES NOT mean causation
+## When is R-Squared Big Enough
 
-* Causation is a possibility, but more must be done to prove causation.
-* The causation could be in reverse (y causes x)
-* A lurking variable may cause both.
+$R^2$ provides us with a measure of how useful the regression line is as a prediction tool.
+* If $R^2$ is close to 1, then the regression line is useful.
+* If $R^2$ is close to 0, then the regression line is not useful.
+* What "close to" means depends on who is using it.
+* Good Practice:  Always report $R^2$ and let the researcher decide.
 
 ---
 
-## Guidelines for Re-Expressions
+## Beware of Just Switching x and y
 
-* Scatterplot bends downwards → $y^{2}$
-* Scatterplot is linear → No change
-* For data that is a count → $y^{\frac{1}{y}}$
-* For data that is always positive → $log(y)$
-* If nothing else seems to work try → $y^{-\frac{1}{2}}$
-* For ratios such as miles per gallon → $\frac{1}{y}$
+* Switching x and y in the regression equation and solving for x does not give the equation of the regression line in reverse.
+* Instead, you must start over with all the computations.
+* This is no big deal if you use a computer or calculator, since the data is already entered.
 
+---
+
+## Conditions to Check For
+
+* Quantitative Variable Condition:  Regression analysis cannot be used for qualitative variables.
+* Straight Enough Condition:  The scatterplot should indicate a relatively straight pattern.
+* Outlier Condition:  Outliers dramatically influence the fit of the least squares line.
+* Does the Plot Thicken? Condition: The data should not become more spread out as the values of x increase.  The spread should be relatively consistent for all x.
+
+---
+
+## Conditions on the Scatterplot of the Residuals
+
+* There should be no bends.
+* There should be no outliers.
+* There should be no changes in the spread from one part of the plot to another.
+
+---
+
+## Causation and Regression
+
+**Never report out a cause and effect relationship based solely on regression analysis.**
+* Even when correlation is high and the model was reasonably linear, we would need a scientific explanation to conclude cause and effect. Regression analysis alone can never prove cause and effect.
+
+---
+
+## What Can Go Wrong?
+
+* Don’t fit a straight line to a nonlinear relationship.  
+	If there are curves and bends in the scatterplot, don’t use regression analysis.
+* Don’t ignore outliers.  
+	Instead report them out and think twice before using regression analysis.
+* Don’t invert the regression.  
+	Switching x and y does not mean just solving for x in the least squares line.  You must start over.

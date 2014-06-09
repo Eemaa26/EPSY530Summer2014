@@ -44,7 +44,7 @@ Jun-4  | Scatterplots, Association, Correlation | [Slides](https://rawgithub.com
        | Linear Regression | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class07.html) [Worksheet](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/LinearRegression.html) | 7 & 8
 Jun-9  | Understanding Randomness | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class09.html) | 9
        | Sample Surveys | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class10.html) | 10
-| Experiments and Observational Studies | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class11.html) | 11
+       | Experiments and Observational Studies | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class11.html) | 11
 Jun-11 | From Randomness to Probability | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class12.html) | 12
        | Probability Rules | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class13.html) | 13
 Jun-16 | Random Variables and Probability Models | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class14.html) | 14

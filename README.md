@@ -53,9 +53,9 @@ Jun-18 | Sampling Distribution Models | [Slides](https://rawgithub.com/jbryer/EP
 Jun-23 | Inference about Means | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class18.html) | 18
        | Comparing Groups | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class20.html) | 20
        | Paired Samples and Block | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class21.html) | 21
-Jun-25 | |  | 
-Jun-30 | Review - Distribute take-home question.
-Jul-2 | Final Exam
+Jun-25 | No Class |  | 
+Jun-30 | Final Exam - Take-home question due.
+Jul-2 | No Class |  |
 
 
 

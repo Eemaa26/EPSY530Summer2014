@@ -47,12 +47,13 @@ Jun-9  | Understanding Randomness | [Slides](https://rawgithub.com/jbryer/EPSY53
        | Experiments and Observational Studies | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class11.html) | 11
 Jun-11 | From Randomness to Probability | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class12.html) | 12
        | Probability Rules | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class13.html) | 13
-Jun-16 | Random Variables and Probability Models | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class14.html) | 14
-Jun-18 | Sampling Distribution Models | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class15.html) | 15
+       | Random Variables and Probability Models | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class14.html) | 14
+Jun-16 | Sampling Distribution Models | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class15.html) | 15
        | Confidence Intervals for Proportions | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class16.html) | 16
-Jun-23 | Inference about Means | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class18.html) | 18
+Jun-18 | Inference about Means | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class18.html) | 18
        | Comparing Groups | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class20.html) | 20
-       | Paired Samples and Block | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class21.html) | 21
+Jun-23 | Paired Samples and Block | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class21.html) | 21
+       | Analysis of Variance |  | PDF
 Jun-25 | No Class |  | 
 Jun-30 | Final Exam - Take-home question due.
 Jul-2 | No Class |  |

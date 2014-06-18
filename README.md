@@ -56,7 +56,6 @@ Jun-18 | Inference about Means | [Slides](https://rawgithub.com/jbryer/EPSY530Su
 Jun-23 | Analysis of Variance |  | [PDF](Chapter28_Anova.pdf)
 Jun-25 | No Class |  | 
 Jun-30 | Final Exam - Take-home question due.
-Jul-2 | No Class |  |
 
 
 

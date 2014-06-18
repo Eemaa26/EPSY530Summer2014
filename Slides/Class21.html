@@ -128,10 +128,23 @@
   <article>
       
     <div class='left' style='float:left;width:60%'>
-     <pre><code class="r">granovagg.ds(anorexia.sub[, 1:2], revc = TRUE)
+     <pre><code class="r">granovagg.ds(anorexia.sub[,1:2], revc=TRUE)
 </code></pre>
 
-<pre><code>Error: could not find function &quot;granovagg.ds&quot;
+<pre><code>                              Summary Statistics
+n                                         17.000
+Postwt mean                               90.494
+Prewt mean                                83.229
+mean(D = Postwt - Prewt)                   7.265
+SD(D)                                      7.157
+Effect Size                                1.015
+r(Postwt, Prewt)                           0.538
+r(Postwt + Prewt, D)                       0.546
+Lower 95% Confidence Interval              3.585
+Upper 95% Confidence Interval             10.945
+t (D-bar)                                  4.185
+df.t                                      16.000
+p-value (t-statistic)                      0.001
 </code></pre>
 
 
@@ -143,7 +156,7 @@
 </slide>
       <slide class="" id="">
   <article>
-    <p><center><img src='Figures/Class19-granovads.png'></center></p>
+    <p><center><img src='Figures/Class21-granovads.png'></center></p>
 
   </article>
 </slide>

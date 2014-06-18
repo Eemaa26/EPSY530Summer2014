@@ -52,8 +52,8 @@ Jun-16 | Sampling Distribution Models | [Slides](https://rawgithub.com/jbryer/EP
        | Confidence Intervals for Proportions | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class16.html) | 16
 Jun-18 | Inference about Means | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class18.html) | 18
        | Comparing Groups | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class20.html) | 20
-Jun-23 | Paired Samples and Block | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class21.html) | 21
-       | Analysis of Variance |  | [PDF](Chapter28_Anova.pdf)
+       | Paired Samples and Block | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class21.html) | 21
+Jun-23 | Analysis of Variance |  | [PDF](Chapter28_Anova.pdf)
 Jun-25 | No Class |  | 
 Jun-30 | Final Exam - Take-home question due.
 Jul-2 | No Class |  |

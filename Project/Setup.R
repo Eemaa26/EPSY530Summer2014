@@ -53,9 +53,9 @@ pisa <- pisa[complete.cases(pisa),]
 #nrow(pisa)
 
 # Sum the scores
-pisa$math <- apply(pisa[,paste0('PV', 1:5, 'MATH')], 1, sum)
-pisa$reading <- apply(pisa[,paste0('PV', 1:5, 'READ')], 1, sum)
-pisa$science <- apply(pisa[,paste0('PV', 1:5, 'SCIE')], 1, sum)
+pisa$math <- apply(pisa[,paste0('PV', 1:5, 'MATH')], 1, sum) / 5
+pisa$reading <- apply(pisa[,paste0('PV', 1:5, 'READ')], 1, sum) / 5
+pisa$science <- apply(pisa[,paste0('PV', 1:5, 'SCIE')], 1, sum) / 5
 
 pisa <- pisa[,!(substr(names(pisa), 1,2) == 'PV')]
 

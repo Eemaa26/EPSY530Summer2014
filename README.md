@@ -41,7 +41,7 @@ May-29 | Introduction / Variables | [Slides](https://rawgithub.com/jbryer/EPSY53
 Jun-2  | Distributions | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class04.html) | 4
        | Standard Deviation and Normality | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class05.html) | 5
 Jun-4  | Scatterplots, Association, Correlation | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class06.html) | 6
-       | Linear Regression | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class07.html) [Worksheet](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/LinearRegression.html) | 7 & 8
+       | Linear Regression | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class07.html), [Worksheet](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/LinearRegression.html) | 7 & 8
 Jun-9  | Understanding Randomness | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class09.html) | 9
        | Sample Surveys | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class10.html) | 10
        | Experiments and Observational Studies | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class11.html) | 11
@@ -53,7 +53,7 @@ Jun-16 | Sampling Distribution Models | [Slides](https://rawgithub.com/jbryer/EP
 Jun-18 | Inference about Means | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class18.html) | 18
        | Comparing Groups | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class20.html) | 20
        | Paired Samples and Block | [Slides](https://rawgithub.com/jbryer/EPSY530Summer2014/master/Slides/Class21.html) | 21
-Jun-23 | Analysis of Variance |  | [PDF](Chapter28_Anova.pdf)
+Jun-23 | Analysis of Variance |  | [PDF](Chapter28_Anova.pdf), [Pruzek & Helmreich (2011)](http://rmpruzek.com/wp-content/uploads/2011/07/ElementalGraphicsForANOVA.finalJune11.pdf)
 Jun-25 | No Class |  | 
 Jun-30 | Final Exam - Take-home question due.
 
